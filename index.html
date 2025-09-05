@@ -2,39 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Minesweeper</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Minesweeper (HTML / CSS / JS)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Minesweeper</h1>
-
-  <div class="controls">
-    <form id="new-game-form">
-      <label>
-        Width
-        <input type="number" id="width" min="4" max="40" value="10">
-      </label>
-      <label>
-        Height
-        <input type="number" id="height" min="4" max="40" value="10">
-      </label>
-      <label>
-        Mines
-        <input type="number" id="mines" min="1" value="15">
-      </label>
-      <button type="submit">New Game</button>
-    </form>
-    <div class="status">
-      <span id="mine-counter">Mines: 0</span>
-      <span id="timer">Time: 0</span>
-      <button id="reset-btn" type="button">Reset</button>
+  <header class="top-bar">
+    <h1>Minesweeper</h1>
+    <div class="controls">
+      <form id="settingsForm" class="settings" onsubmit="return false;">
+        <label>
+          Difficulty
+          <select id="difficultySelect" aria-label="Select difficulty">
+            <option value="beginner">Beginner (9x9, 10)</option>
+            <option value="intermediate">Intermediate (16x16, 40)</option>
+            <option value="expert">Expert (30x16, 99)</option>
+            <option value="custom">Custom</option>
+          </select>
+        </label>
+        <span id="customFields" class="custom-fields" hidden>
+          <label>Cols <input id="customCols" type="number" min="5" max="60" value="12"></label>
+          <label>Rows <input id="customRows" type="number" min="5" max="40" value="12"></label>
+          <label>Mines <input id="customMines" type="number" min="1" max="400" value="20"></label>
+        </span>
+        <button id="newGameBtn" type="button">New Game</button>
+      </form>
+      <div class="status-panels">
+        <div class="panel">
+          <span class="label">Mines</span>
+          <span id="minesRemaining" class="value">000</span>
+        </div>
+        <div class="panel">
+          <span class="label">Time</span>
+            <span id="timer" class="value">000</span>
+        </div>
+      </div>
+      <button id="resetBtn" class="reset-btn" type="button" aria-label="Reset game">🙂</button>
     </div>
-    <div class="legend">
-      Left click: reveal &nbsp; | &nbsp; Right click (or long press): flag
-    </div>
-  </div>
+  </header>
 
-  <div id="board" class="board" aria-label="Minesweeper board" role="grid"></div>
+  <main>
+    <div id="message" class="message" aria-live="polite"></div>
+    <div id="boardWrapper" class="board-wrapper">
+      <div id="board" class="board" role="grid" aria-label="Minesweeper board"></div>
+    </div>
+
+    <details class="help">
+      <summary>Help & Controls</summary>
+      <ul>
+        <li>Left click / tap: reveal a cell.</li>
+        <li>Right click / long press: place/remove a flag.</li>
+        <li>Keyboard: Tab to a cell, Enter/Space to reveal, F to flag.</li>
+        <li>First click is always safe; mines are placed after your first reveal.</li>
+      </ul>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <p>Built with HTML, CSS & JavaScript. Customize or extend as you like!</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>  <div id="board" class="board" aria-label="Minesweeper board" role="grid"></div>
 
   <dialog id="game-over-dialog">
     <h2 id="result-title"></h2>
