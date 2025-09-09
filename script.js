@@ -20,12 +20,6 @@
   const minesRemainingEl = document.getElementById('minesRemaining');
   const timerEl = document.getElementById('timer');
   const resetBtn = document.getElementById('resetBtn');
-  const newGameBtn = document.getElementById('newGameBtn');
-  const difficultySelect = document.getElementById('difficultySelect');
-  const customFields = document.getElementById('customFields');
-  const customCols = document.getElementById('customCols');
-  const customRows = document.getElementById('customRows');
-  const customMines = document.getElementById('customMines');
   const messageEl = document.getElementById('message');
 
   let board = []; // 2D array of cell objects
@@ -343,7 +337,7 @@
     }
   }
 
-  function resetGame(chosenDifficulty) {
+  function resetGame() {
     stopTimer();
     resetTimer();
     setMessage('');
@@ -353,17 +347,8 @@
     flagsPlaced = 0;
     firstClick = true;
 
-    if (chosenDifficulty) {
-      if (difficulties[chosenDifficulty]) {
-        ({ cols, rows, mines: mineCount } = difficulties[chosenDifficulty]);
-      } else {
-        // Custom
-        cols = clamp(parseInt(customCols.value, 10), 5, 60);
-        rows = clamp(parseInt(customRows.value, 10), 5, 40);
-        const maxMines = Math.min(cols * rows - 1, 400);
-        mineCount = clamp(parseInt(customMines.value, 10), 1, maxMines);
-      }
-    }
+    // Always use beginner difficulty since settings form is removed
+    ({ cols, rows, mines: mineCount } = difficulties.beginner);
 
     minesRemainingEl.textContent = formatNumber(mineCount);
     createEmptyBoard();
@@ -409,20 +394,11 @@
 
   // Event bindings
   resetBtn.addEventListener('click', () => {
-    resetGame(difficultySelect.value);
-  });
-
-  newGameBtn.addEventListener('click', () => {
-    resetGame(difficultySelect.value);
-  });
-
-  difficultySelect.addEventListener('change', () => {
-    const isCustom = difficultySelect.value === 'custom';
-    customFields.hidden = !isCustom;
+    resetGame();
   });
 
   // Initialize default
-  resetGame('beginner');
+  resetGame();
 
   // Expose for debugging (optional)
   window.__Minesweeper__ = {

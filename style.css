@@ -54,64 +54,11 @@ h1 {
   flex-wrap: wrap;
 }
 
-.settings {
-  display: flex;
-  align-items: center;
-  gap: .6rem .9rem;
-  flex-wrap: wrap;
-  background: var(--bg-panel);
-  padding: .6rem .8rem;
-  border: 1px solid var(--border);
-  border-radius: .75rem;
-}
 
-.settings select,
-.settings input {
-  background: #20232a;
-  color: var(--text);
-  border: 1px solid var(--border-light);
-  padding: .35rem .5rem;
-  border-radius: .4rem;
-  font: inherit;
-  min-width: 70px;
-  transition: border-color var(--transition), background var(--transition);
-}
 
-.settings input:focus,
-.settings select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-}
 
-.settings label {
-  display: flex;
-  flex-direction: column;
-  font-size: .7rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  gap: .15rem;
-}
 
-.custom-fields {
-  display: flex;
-  gap: .6rem;
-}
 
-#newGameBtn {
-  background: var(--accent);
-  border: none;
-  color: #fff;
-  font: inherit;
-  font-weight: 600;
-  padding: .55rem .95rem;
-  border-radius: .55rem;
-  cursor: pointer;
-  letter-spacing: .5px;
-  box-shadow: 0 4px 14px -4px #000, inset 0 2px 0 rgba(255,255,255,.15);
-  transition: background var(--transition), transform var(--transition);
-}
-#newGameBtn:hover { background: var(--accent-hover); }
-#newGameBtn:active { transform: translateY(1px); }
 
 .status-panels {
   display: flex;
@@ -348,16 +295,10 @@ main {
     order: 2;
     align-self: center;
   }
-  .settings {
-    order: 1;
-    width: 100%;
-    justify-content: space-between;
-  }
 }
 
 @media (max-width: 480px) {
   :root { --cell-size: 30px; }
-  .custom-fields label { font-size: .55rem; }
   .panel { min-width: 74px; }
 }  gap: 1rem;
   background: var(--panel);

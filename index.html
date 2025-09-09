@@ -10,23 +10,7 @@
   <header class="top-bar">
     <h1>Minesweeper</h1>
     <div class="controls">
-      <form id="settingsForm" class="settings" onsubmit="return false;">
-        <label>
-          Difficulty
-          <select id="difficultySelect" aria-label="Select difficulty">
-            <option value="beginner">Beginner (9x9, 10)</option>
-            <option value="intermediate">Intermediate (16x16, 40)</option>
-            <option value="expert">Expert (30x16, 99)</option>
-            <option value="custom">Custom</option>
-          </select>
-        </label>
-        <span id="customFields" class="custom-fields" hidden>
-          <label>Cols <input id="customCols" type="number" min="5" max="60" value="12"></label>
-          <label>Rows <input id="customRows" type="number" min="5" max="40" value="12"></label>
-          <label>Mines <input id="customMines" type="number" min="1" max="400" value="20"></label>
-        </span>
-        <button id="newGameBtn" type="button">New Game</button>
-      </form>
+
       <div class="status-panels">
         <div class="panel">
           <span class="label">Mines</span>
