@@ -6,6 +6,15 @@
  * - Timer & mine counter
  * - Difficulty selection & custom sizes
  * - Keyboard navigation & accessibility
+ *
+ * HTMX Preparation:
+ * - Cells include data-x/data-y attributes for server addressing
+ * - Future server endpoints can be added:
+ *   - POST /game/reveal?x={x}&y={y} - reveal a cell
+ *   - POST /game/flag?x={x}&y={y} - toggle flag
+ *   - POST /game/reset - reset the game
+ *   - GET /game/board - fetch current board state
+ * - Currently all game logic runs client-side
  */
 
 (() => {
@@ -148,6 +157,9 @@
         cellDiv.type = 'button';
         cellDiv.setAttribute('data-row', r);
         cellDiv.setAttribute('data-col', c);
+        // data-x and data-y for future htmx server interactions
+        cellDiv.setAttribute('data-x', c);
+        cellDiv.setAttribute('data-y', r);
         cellDiv.setAttribute('role', 'gridcell');
         cellDiv.setAttribute('aria-label', `Covered cell at row ${r + 1} column ${c + 1}`);
         cellDiv.tabIndex = 0;
