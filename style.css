@@ -54,12 +54,6 @@ h1 {
   flex-wrap: wrap;
 }
 
-
-
-
-
-
-
 .status-panels {
   display: flex;
   gap: .75rem;
@@ -264,7 +258,6 @@ main {
   letter-spacing: .5px;
 }
 
-/* Scrollbar styling for board overflow */
 .board-wrapper::-webkit-scrollbar {
   height: 10px;
   width: 10px;
@@ -281,7 +274,6 @@ main {
   background: #515c68;
 }
 
-/* Responsive tweaks */
 @media (max-width: 760px) {
   :root { --cell-size: 32px; }
   .controls {
