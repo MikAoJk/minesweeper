@@ -157,7 +157,7 @@
         cellDiv.type = 'button';
         cellDiv.setAttribute('data-row', r);
         cellDiv.setAttribute('data-col', c);
-        // data-x and data-y for future htmx server interactions
+        // Add x,y coordinates as data attributes for future htmx server interactions
         cellDiv.setAttribute('data-x', c);
         cellDiv.setAttribute('data-y', r);
         cellDiv.setAttribute('role', 'gridcell');

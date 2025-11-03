@@ -24,7 +24,8 @@
         </div>
       </div>
       <!-- Reset button: Currently client-side only via script.js
-           Future: Can POST to /game/reset and swap board content -->
+           The hx-trigger="none" is a placeholder that prevents htmx from interfering
+           Future: Change to hx-post="/game/reset" hx-swap="outerHTML" when backend is ready -->
       <button id="resetBtn" 
               class="reset-btn" 
               type="button" 
