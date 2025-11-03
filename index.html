@@ -5,7 +5,6 @@
   <title>Minesweeper (HTML / CSS / JS)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
-  <!-- htmx for future server-side enhancements -->
   <script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
 </head>
 <body>
@@ -23,9 +22,7 @@
             <span id="timer" class="value">000</span>
         </div>
       </div>
-      <!-- Reset button: Currently client-side only via script.js
-           The hx-trigger="none" is a placeholder that prevents htmx from interfering
-           Future: Change to hx-post="/game/reset" hx-swap="outerHTML" when backend is ready -->
+
       <button id="resetBtn" 
               class="reset-btn" 
               type="button" 
@@ -36,11 +33,8 @@
 
   <main>
     <div id="message" class="message" aria-live="polite"></div>
-    <!-- Board wrapper: Future server endpoint could be /game/board
-         Use hx-get="/game/board" hx-trigger="load" to fetch initial board from server -->
+    
     <div id="boardWrapper" class="board-wrapper">
-      <!-- Board container: Cells will be rendered by script.js with data-x, data-y attributes
-           Future: Individual cells can use hx-post="/game/reveal" or hx-post="/game/flag" -->
       <div id="board" 
            class="board" 
            role="grid" 
@@ -59,10 +53,6 @@
       </ul>
     </details>
   </main>
-
-  <footer class="footer">
-    <p>Built with HTML, CSS & JavaScript. Customize or extend as you like!</p>
-  </footer>
 
   <script src="script.js" defer></script>
 </body>
